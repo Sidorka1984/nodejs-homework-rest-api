@@ -1,19 +1,13 @@
+const { NotFound } = require('http-errors')
 const contactsOperations = require('../model')
+const { sendSuccessRes } = require('../helpers')
 
 const getContactById = async (req, res, next) => {
   const { contactId } = req.params
   const result = await contactsOperations.getContactById(contactId)
   if (!result) {
-    const error = new Error(`Contact with id=${contactId} not found`)
-    error.status = 404
-    throw error
+    throw NotFound(`Contact with id=${contactId} not found`)
   }
-  res.json({
-    status: 'seccess',
-    code: 200,
-    data: {
-      result
-    }
-  })
+  sendSuccessRes(res, { result })
 }
 module.exports = getContactById
