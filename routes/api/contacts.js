@@ -4,7 +4,7 @@ const router = express.Router()
 const { contactSchema } = require('../../schemas')
 // const { sendSeccessRes } = require('../../helpers')
 const { controllerWrapper, validation } = require('../../middlewares')
-const contactsController = require('../../controllers')
+const contactsController = require('../../controllers/contacts')
 
 router.get('/', controllerWrapper(contactsController.listContacts))
 
