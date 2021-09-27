@@ -24,7 +24,3 @@ app.use((err, req, res, next) => {
 })
 
 module.exports = app
-
-// Z1nbpDxGwwBrziQM
-// Olga
-//mongodb+srv://Olga:Z1nbpDxGwwBrziQM@cluster0.ucxlg.mongodb.net/db-contacts?retryWrites=true&w=majority
