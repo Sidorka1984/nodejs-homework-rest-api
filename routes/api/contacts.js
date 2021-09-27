@@ -1,19 +1,20 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-const { contactSchema } = require('../../schemas')
-// const { sendSeccessRes } = require('../../helpers')
-const { controllerWrapper, validation } = require('../../middlewares')
-const contactsController = require('../../controllers/contacts')
+const { controllerWrapper, validation } = require('../../middlewares');
+const contactsController = require('../../controllers/contacts');
+const { joiSchema, updateFavoriteJoiSchema } = require('../../models/contact');
 
-router.get('/', controllerWrapper(contactsController.listContacts))
+router.get('/', controllerWrapper(contactsController.listContacts));
 
-router.get('/:contactId', controllerWrapper(contactsController.getContactById))
+router.get('/:contactId', controllerWrapper(contactsController.getContactById));
 
-router.post('/', validation(contactSchema), controllerWrapper(contactsController.addContact))
+router.post('/', validation(joiSchema), controllerWrapper(contactsController.addContact));
 
-router.delete('/:contactId', controllerWrapper(contactsController.removeContact))
+router.delete('/:contactId', controllerWrapper(contactsController.removeContact));
 
-router.put('/:contactId', validation(contactSchema), controllerWrapper(contactsController.updateContact))
+router.put('/:contactId', validation(joiSchema), controllerWrapper(contactsController.updateContact));
 
-module.exports = router
+router.patch("/:contactId", validation(updateFavoriteJoiSchema), controllerWrapper(contactsController.updateFavoriteContact));
+
+module.exports = router;
