@@ -15,7 +15,12 @@ const signup = async(req, res) => {
     // const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10))
     // const newUser = { email, password: hashPassword };
     // const result = await User.create(newUser);
-    sendSuccessRes(res, { result }, 201)
+    sendSuccessRes(res, null, 201)
+    //  res.status(201).json({
+        // status: "success",
+        // code: 201,
+        // message: "Success register"
+    // });
 };
 
 module.exports = signup;
