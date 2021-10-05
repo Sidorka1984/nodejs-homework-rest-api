@@ -7,7 +7,7 @@ const updateFavoriteContact = async (req, res) => {
     const { favorite } = req.body;
     const result = await Contact.findByIdAndUpdate(contactId, { favorite }, { new: true });
     if (result) {
-        throw NotFound(`Contact with id=${contactId} not found`);
+        throw new NotFound(`Contact with id=${contactId} not found`);
     }
     sendSuccessRes(res, result, 200, 'Contact has been successfully updated')
 };

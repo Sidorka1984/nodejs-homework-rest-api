@@ -7,7 +7,7 @@ const updateContact = async (req, res) => {
   const result = await Contact.findByIdAndUpdate(contactId, req.body, {new:true})
 
   if (!result) {
-    throw NotFound(`Contact with id=${contactId} not found`);
+    throw new NotFound(`Contact with id=${contactId} not found`);
   }
   sendSuccessRes(res, result, 200, 'Contact has been successfully updated');
 }
