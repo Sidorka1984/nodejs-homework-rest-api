@@ -2,8 +2,9 @@ const { Contact } = require('../../models');
 const { sendSuccessRes } = require('../../helpers');
 
 const listContacts = async (req, res) => {
-  const result = await Contact.find({}, "_id name email phone favorite");
-  sendSuccessRes(res, { result })
+  const {_id} = req.user;
+  const result = await Contact.find({owner: _id}, "_id content owner");
+  sendSuccessRes(res, { result }, 200)
 }
 
 module.exports = listContacts
