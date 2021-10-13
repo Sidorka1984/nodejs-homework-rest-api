@@ -1,8 +1,6 @@
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
-// const { v4 } = require('uuid')
-// const fs = require('fs/promises')
 require('dotenv').config()
 
 // const multer = require("multer");
