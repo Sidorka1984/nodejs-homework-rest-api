@@ -19,6 +19,6 @@ router.get("/users/logout", authenticate, controllerWrapper(ctrl.logout));
 
 router.get("/users/current", authenticate, controllerWrapper(ctrl.current));
 
-router.post('/avatars', authenticate, upload.single('avatar'), ctrl.avatars);
+router.patch('/avatars', authenticate, upload.single('avatar'), ctrl.avatars);
 
 module.exports = router;
