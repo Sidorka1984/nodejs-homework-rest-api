@@ -1,7 +1,8 @@
 const express = require('express');
 
-const { joiSchema } = require("../../models/user");
+const { joiSchema, joiSubscrSchema } = require("../../models/user");
 const { controllerWrapper, validation, authenticate } = require('../../middlewares');
+const upload = require('../../middlewares/upload');
 const { auth: ctrl } = require("../../controllers");
 
 const router = express.Router();
@@ -12,8 +13,12 @@ router.post("/users/signup", validation(joiSchema), controllerWrapper(ctrl.signu
 
 router.post("/users/login", validation(joiSchema), controllerWrapper(ctrl.login));
 
+router.patch('/users', authenticate, validation(joiSubscrSchema), controllerWrapper(ctrl.updateSubscr));
+
 router.get("/users/logout", authenticate, controllerWrapper(ctrl.logout));
 
 router.get("/users/current", authenticate, controllerWrapper(ctrl.current));
+
+router.post('/avatars', authenticate, upload.single('avatar'), ctrl.avatars);
 
 module.exports = router;
