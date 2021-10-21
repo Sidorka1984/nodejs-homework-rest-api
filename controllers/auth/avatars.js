@@ -5,7 +5,7 @@ const Jimp = require('jimp');
 const { User } = require("../../models");
 const { sendSuccessRes } = require('../../helpers');
 
-const uploadDir = path.join(__dirname, '../../', 'public/avatars');
+const uploadDir = path.join(__dirname, '../../', 'public');
 
 const avatars = async (req, res) => {
     const { originalname, path: tempDir } = req.file;
