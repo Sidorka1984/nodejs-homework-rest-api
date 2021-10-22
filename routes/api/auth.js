@@ -11,7 +11,7 @@ module.exports = router;
 
 router.post("/users/signup", validation(joiSchema), controllerWrapper(ctrl.signup));
 
-// router.post("/verify", controllerWrapper(ctrl.reverification));
+router.post("/verify", controllerWrapper(ctrl.reverification));
 
 router.get("/users/verify/:verifyToken", controllerWrapper(ctrl.verify));
 

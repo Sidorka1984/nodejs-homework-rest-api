@@ -29,17 +29,11 @@ module.exports = sendEmail;
 // }
 // const transporter = nodemailer.createTransport(nodemailerConfig);
 // 
-// const email = {
-    // to: "sidorka.olka@gmail.com",
-    // from: "ulyanchuk@meta.ua",
-    // subject: "Новая заявка с сайта",
-    // html: `<p><strong>Email клиента:</strong> sidorka.olka@mail.ccom</p>
-            // <p><strong>Телефон клиента:</strong> 8-067 555-55-55</p>`
-// };
+// const sendEmail = async (data) => {
+    // const email = { ...data, from: "ulyanchuk@meta.ua" };
+    // 
+    // await transporter.send(email);
+// }
 // 
-// transporter.sendMail(email)
-    // .then(()=> console.log("Email success send"))
-    // .catch(error => console.log(error.message))
-// 
-// module.exports = email;
+// module.exports = sendEmail;
 // 
